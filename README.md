@@ -9,5 +9,6 @@ Example:
    
 Library is required to provide:
    a) a way to accept a string representing a new set of values delimited by comma sign “,” (e.g. “1,2,3”) and return true/false if the given set is a duplicate of a set seen before,
-   b) a way to list members of the most frequent duplicate group seen so far,
-   c) a way to return human readable report on list of invalid inputs seen so far.
+   b) b) a way to return an information on number of duplicates and non-duplicates seen so far,
+   c) a way to list members of the most frequent duplicate group seen so far,
+   d) a way to return human readable report on list of invalid inputs seen so far.

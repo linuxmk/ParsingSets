@@ -19,6 +19,8 @@ public:
     void printInvalidInputs(void) const;
     bool findLine(string& line);
     map<multiset<int>, int>::iterator getMostFreq(void);
+    int getNumOfDuplicates(void);
+    int getNumOfNonDuplicates(void);
 
 private:
       int convertToForwardList(string line, multiset<int> &l);
@@ -28,6 +30,7 @@ private:
       ifstream myfile;
       int duplicates, nonduplicates;
       int invalid;
+      int numOfSets;
       multimap<int, map<multiset<int>, int>>  tree;
       map<multiset<int>, int>::iterator mostFreqDuplicat;
 

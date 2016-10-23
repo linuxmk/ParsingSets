@@ -6,11 +6,11 @@
 #include <map>
 using namespace std;
 
-ncr::ncr(): duplicates(0), nonduplicates(0)
+ncr::ncr()
 {}
 
 ncr::ncr(string & filename) :
-    duplicates(0), nonduplicates(0), invalid(0), mostFreqDuplicat(tree.begin()->second.begin())
+            invalid(0), mostFreqDuplicat(tree.begin()->second.begin()), numOfSets(0), nonduplicates(0), duplicates(0)
 {
         myfile.open(filename);
         if(!myfile.is_open())
@@ -74,8 +74,11 @@ bool ncr::workHourse(string &line)
                 cout << "number of showing is " << result->second << endl;
                 if(mostFreqDuplicat->second < result->second)
                     mostFreqDuplicat = result;
+                if(result->second == 2)
+                {
+                    --nonduplicates;
+                }
                 duplicate = true;
-                duplicates++;
             }
             else
             {
@@ -83,6 +86,7 @@ bool ncr::workHourse(string &line)
                 mm.insert(std::pair<std::multiset<int>, int>(l, 1));
                 tree.insert(std::pair<int, map<multiset<int>, int>>(numOfElements, mm));
                 ++nonduplicates;
+                ++numOfSets;
             }
         }
         else
@@ -150,6 +154,16 @@ bool ncr::tryString(string line)
                 }
        }
 return false;
+}
+
+int ncr::getNumOfDuplicates(void)
+{
+  return numOfSets - nonduplicates;
+}
+
+int ncr::getNumOfNonDuplicates(void)
+{
+return  nonduplicates;
 }
 
 void ncr::printAll(void) const

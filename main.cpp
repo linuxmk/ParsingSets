@@ -24,6 +24,7 @@ int main(int argc, char *argv[])
         cout << "Enter choice: ";
 
         cin.get(ch).ignore(1, '\n');
+        cout << endl << endl;
 
         switch (ch) {
                 case '1':
@@ -35,23 +36,30 @@ int main(int argc, char *argv[])
                                 cout << "Already exists" << endl;
                             else
                                     cout << "New entry" << endl;
+                              cout << endl << endl;
                             break;
                  }
                 case '2':
                 {
+                            cout << "There are " << dupl.getNumOfDuplicates() << " duplicate sets" << endl;
+                            cout << "There are " << dupl.getNumOfNonDuplicates() << " nonDuplicate sets" << endl;
+                            cout << endl << endl;
                     break;
                 }
                 case '3':
                 {
                             auto x = dupl.getMostFreq();
-                            cout << "Nyum of repeats " << x->second << endl;
+                            cout << "Numer of repeats of same set: " << x->second << endl;
+                            cout << "Elements : ";
                             for(const auto &l : x->first)
-                                   cout << l << endl;
+                                   cout << l << " " ;
+                              cout << endl << endl;
                             break;
                 }
                 case '4':
                 {
                              dupl.printInvalidInputs();
+                             cout << endl << endl;
                     break;
                 }
                 case 'q':
